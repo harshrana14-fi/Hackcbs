@@ -1,4 +1,4 @@
-# 🗳️ HackCBS - Blockchain-Based Digital Voting System
+# 🗳️ VoteChain - Blockchain-Based Digital Voting System
 
 A comprehensive, secure, and transparent digital voting platform built with blockchain technology, featuring multi-language support, AR voting badges, and end-to-end encryption.
 
@@ -690,3 +690,4 @@ For support, email support@hackcbs.com or create an issue in the repository.
 ---
 
 **Note**: This is a prototype/demo project. For production use, additional security measures, audits, and compliance checks are required.
+
