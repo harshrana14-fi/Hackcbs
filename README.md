@@ -18,7 +18,7 @@ A comprehensive, secure, and transparent digital voting platform built with bloc
 
 ## 🎯 Overview
 
-HackCBS is a modern digital voting system designed to ensure transparency, security, and accessibility in elections. The platform combines blockchain technology for immutable vote recording, biometric verification for identity authentication, and a user-friendly interface supporting multiple Indian languages.
+VoteChain is a modern digital voting system designed to ensure transparency, security, and accessibility in elections. The platform combines blockchain technology for immutable vote recording, biometric verification for identity authentication, and a user-friendly interface supporting multiple Indian languages.
 
 ### Key Highlights
 
@@ -690,4 +690,5 @@ For support, email support@hackcbs.com or create an issue in the repository.
 ---
 
 **Note**: This is a prototype/demo project. For production use, additional security measures, audits, and compliance checks are required.
+
 
