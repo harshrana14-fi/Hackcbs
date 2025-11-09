@@ -10,10 +10,10 @@ export default function Home() {
   const [isGuideOpen, setIsGuideOpen] = useState(false);
   const { t } = useLanguage();
   return (
-    <div className="bg-gray-50 text-gray-900">
-   <Navbar/>
+    <div className="bg-[#F5F5F5] text-[#1a1a1a] min-h-screen">
+      <Navbar/>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex flex-col justify-center items-center text-center bg-gradient-to-b from-slate-50 to-white px-6 overflow-hidden pt-28 md:pt-32">
+      <section className="relative min-h-screen flex flex-col justify-center items-center text-center bg-white px-6 overflow-hidden pt-32 md:pt-36">
   {/* Professional Background Pattern */}
   <div className="absolute inset-0 opacity-5">
     <div className="absolute inset-0" style={{
@@ -25,34 +25,41 @@ export default function Home() {
   {/* Subtle Gradient Overlay */}
   <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-transparent to-indigo-50/30"></div>
 
-  {/* Government Seal/Badge */}
+  {/* Official Government Seal */}
   <motion.div
     initial={{ opacity: 0, scale: 0.8 }}
     animate={{ opacity: 1, scale: 1 }}
     transition={{ duration: 0.6 }}
     className="mb-6 z-10"
   >
-    <div className="w-20 h-20 bg-gradient-to-br from-blue-900 to-blue-700 rounded-full flex items-center justify-center shadow-lg border-4 border-white">
-      <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
-        <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-      </svg>
+    <div className="w-24 h-24 rounded-full bg-white border-4 border-[#002147] flex items-center justify-center shadow-xl">
+      <div className="w-20 h-20 rounded-full border-3 border-[#002147] relative flex items-center justify-center">
+        <svg viewBox="0 0 24 24" className="w-12 h-12 text-[#002147]">
+          <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="1.5"/>
+          <path d="M12 2 L12 22 M2 12 L22 12" stroke="currentColor" strokeWidth="1"/>
+          <circle cx="12" cy="12" r="2" fill="currentColor"/>
+        </svg>
+      </div>
     </div>
   </motion.div>
 
-  {/* Official Badge */}
+  {/* Official Badge with Tricolor */}
   <motion.div
     initial={{ opacity: 0, y: -10 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6, delay: 0.2 }}
-    className="mb-4 z-10"
+    className="mb-6 z-10"
   >
-    <span className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 px-5 py-2 rounded-full text-sm font-medium text-blue-900">
-      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-        <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
-        <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm9.707 5.707a1 1 0 00-1.414-1.414L9 12.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-      </svg>
-      {t("home.officialBadge")}
-    </span>
+    <div className="inline-flex flex-col items-center gap-2">
+      <div className="w-32 h-1 bg-gradient-to-r from-[#FF9933] via-white to-[#138808] rounded"></div>
+      <span className="inline-flex items-center gap-2 bg-[#002147] text-white px-6 py-2 text-sm font-semibold uppercase tracking-wider border-2 border-[#FF9933]">
+        <Shield className="w-4 h-4" />
+        Official Government Portal
+      </span>
+      <div className="text-xs text-[#4A4A4A] font-medium">
+        भारत सरकार | Government of India
+      </div>
+    </div>
   </motion.div>
 
   {/* Main Heading */}
@@ -60,9 +67,12 @@ export default function Home() {
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8, delay: 0.3 }}
-    className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 z-10 leading-tight text-gray-900"
+    className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 z-10 leading-tight text-[#002147] govt-heading"
   >
-    {t("home.mainHeading")}
+    Digital Voting System
+      <div className="text-2xl md:text-3xl lg:text-4xl mt-2 text-[#4A4A4A] font-normal">
+        भारत निर्वाचन आयोग
+      </div>
   </motion.h1>
 
   {/* Subheading */}
@@ -70,9 +80,9 @@ export default function Home() {
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ delay: 0.4, duration: 0.8 }}
-    className="text-lg md:text-xl max-w-3xl mb-8 z-10 text-gray-700 leading-relaxed font-normal"
+    className="text-base md:text-lg max-w-3xl mb-8 z-10 text-[#4A4A4A] leading-relaxed font-normal"
   >
-    {t("home.subheading")}
+    Secure, Transparent, and Accessible Digital Voting Platform for All Citizens of India
   </motion.p>
 
   {/* Trust Indicators */}
@@ -124,41 +134,39 @@ export default function Home() {
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ delay: 0.6, duration: 0.8 }}
-    className="flex flex-col sm:flex-row gap-4 z-10 mb-6"
+    className="flex flex-col sm:flex-row gap-4 z-10 mb-8"
   >
     <motion.a
       href="/register"
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
-      className="bg-blue-900 text-white font-semibold px-8 py-4 rounded-lg shadow-lg hover:bg-blue-800 transition-all flex items-center justify-center gap-2"
+      className="bg-[#002147] text-white font-semibold px-8 py-4 rounded shadow-lg hover:bg-[#003A6B] transition-all flex items-center justify-center gap-2 border-2 border-[#FF9933]"
     >
+      <Vote className="w-5 h-5" />
       {t("home.registerToVote")}
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-      </svg>
+    </motion.a>
+    
+    <motion.a
+      href="/login"
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      className="bg-white border-2 border-[#002147] text-[#002147] font-semibold px-8 py-4 rounded hover:bg-[#F5F5F5] transition-all flex items-center justify-center gap-2"
+    >
+      <Users className="w-5 h-5" />
+      {t("navbar.login")}
     </motion.a>
     
     <motion.a
       href="#how-it-works"
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
-      className="bg-white border-2 border-blue-900 text-blue-900 font-semibold px-8 py-4 rounded-lg hover:bg-blue-50 transition-all flex items-center justify-center gap-2"
+      className="bg-white border-2 border-[#4A4A4A] text-[#4A4A4A] font-semibold px-8 py-4 rounded hover:bg-[#F5F5F5] transition-all flex items-center justify-center gap-2"
     >
       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
         <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
       </svg>
       {t("home.howItWorks")}
     </motion.a>
-    
-    <motion.button
-      type="button"
-      onClick={() => setIsGuideOpen(true)}
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-      className="bg-white border-2 border-gray-300 text-gray-700 font-semibold px-8 py-4 rounded-lg hover:bg-gray-50 transition-all"
-    >
-      {t("home.voterGuide")}
-    </motion.button>
   </motion.div>
 
   {/* Voter Guide Modal */}
@@ -225,7 +233,7 @@ export default function Home() {
 </section>
 
       {/* How It Works Section */}
-<section id="how-it-works" className="py-20 px-6 md:px-20 bg-gradient-to-b from-gray-50 to-white">
+<section id="how-it-works" className="py-20 px-6 md:px-20 bg-white border-t-2 border-[#E0E0E0]">
   <div className="max-w-7xl mx-auto">
     {/* Section Header */}
     <div className="text-center mb-16">
@@ -485,7 +493,7 @@ export default function Home() {
 </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20 px-6 md:px-20 bg-gray-100">
+      <section id="features" className="py-20 px-6 md:px-20 bg-[#F5F5F5] border-t-2 border-[#E0E0E0]">
         <h2 className="text-4xl font-bold text-center mb-16 text-gray-800">
           {t("home.keyFeatures")}
         </h2>
@@ -522,7 +530,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="p-6 bg-white rounded-2xl shadow-md hover:shadow-2xl transition"
+              className="p-6 bg-white rounded border border-[#E0E0E0] shadow-sm hover:shadow-md transition govt-card"
             >
               <CheckCircle className="w-8 h-8 text-indigo-600 mb-4" />
               <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
@@ -533,7 +541,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative overflow-hidden bg-[#0f172a] py-24 px-6 text-center text-white">
+      <section className="relative overflow-hidden bg-[#002147] py-24 px-6 text-center text-white border-t-4 border-[#FF9933]">
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-indigo-800/90 via-blue-900/90 to-slate-900/95" />
         <div className="absolute inset-x-0 -top-24 h-48 -z-10 opacity-70">
           <svg viewBox="0 0 1440 400" className="h-full w-full text-indigo-900/40" preserveAspectRatio="none">

@@ -1,5 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import RegistrationProgress from "@/components/RegistrationProgress";
 import { useState } from "react";
 import { registerAPI } from "../api";
@@ -134,33 +136,34 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-gray-800 text-slate-100 flex flex-col">
+    <div className="min-h-screen bg-[#F5F5F5] flex flex-col">
+      <Navbar />
       <RegistrationProgress step={1} />
-      <main className="flex-grow flex items-start justify-center py-12 px-4">
+      <main className="flex-grow flex items-start justify-center py-12 px-4 pt-32">
         <div className="w-full max-w-4xl">
-          <section className="bg-slate-900/70 backdrop-blur-md border border-slate-700 rounded-2xl shadow-xl overflow-hidden">
-            <header className="px-8 py-6 border-b border-slate-800 flex items-center justify-between">
+          <section className="bg-white rounded border border-[#E0E0E0] shadow-md govt-card overflow-hidden">
+            <header className="px-8 py-6 border-b-2 border-[#FF9933] bg-[#002147] flex items-center justify-between">
               <div>
-                <h1 className="text-2xl font-semibold text-white">
+                <h1 className="text-2xl font-bold text-white govt-heading">
                   {t("register.personalDetails")}
                 </h1>
-                <p className="text-sm text-slate-400 mt-1">
+                <p className="text-sm text-white/80 mt-1">
                   {t("register.fillDetails")}
                 </p>
               </div>
-              <div className="text-sm text-slate-400">{t("register.step1of4")}</div>
+              <div className="text-sm text-white font-semibold bg-[#FF9933] text-[#002147] px-4 py-2 rounded">{t("register.step1of4")}</div>
             </header>
 
             <form onSubmit={handleNext} className="px-8 py-8 space-y-8">
               {error && (
-                <div className="text-sm text-red-400 bg-red-900/30 p-3 rounded-lg">
+                <div className="text-sm text-red-600 bg-red-50 border-2 border-red-200 p-3 rounded">
                   {error}
                 </div>
               )}
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <label className="flex flex-col">
-                  <span className="text-sm text-slate-300 font-medium mb-2">
+                  <span className="text-sm text-[#002147] font-semibold mb-2">
                     {t("register.fullName")} *
                   </span>
                   <input
@@ -169,7 +172,7 @@ export default function RegisterPage() {
                     onChange={handleChange}
                     required
                     aria-label="Full name"
-                    className="px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                    className="px-4 py-3 bg-white border-2 border-[#E0E0E0] rounded text-[#1a1a1a] placeholder-[#999] focus:outline-none focus:ring-2 focus:ring-[#002147] focus:border-[#002147] transition"
                     placeholder="e.g., John Doe"
                   />
                 </label>
@@ -186,7 +189,7 @@ export default function RegisterPage() {
                     required
                     min={1}
                     aria-label="Age"
-                    className="px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                    className="px-4 py-3 bg-white border-2 border-[#E0E0E0] rounded text-[#1a1a1a] placeholder-[#999] focus:outline-none focus:ring-2 focus:ring-[#002147] focus:border-[#002147] transition"
                     placeholder="e.g., 30"
                   />
                 </label>
@@ -204,7 +207,7 @@ export default function RegisterPage() {
                     onChange={handleChange}
                     required
                     aria-label="Phone number"
-                    className="px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                    className="px-4 py-3 bg-white border-2 border-[#E0E0E0] rounded text-[#1a1a1a] placeholder-[#999] focus:outline-none focus:ring-2 focus:ring-[#002147] focus:border-[#002147] transition"
                     placeholder="+91 98765 43210"
                   />
                 </label>
@@ -220,19 +223,19 @@ export default function RegisterPage() {
                     onChange={handleChange}
                     required
                     aria-label="Email"
-                    className="px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                    className="px-4 py-3 bg-white border-2 border-[#E0E0E0] rounded text-[#1a1a1a] placeholder-[#999] focus:outline-none focus:ring-2 focus:ring-[#002147] focus:border-[#002147] transition"
                     placeholder="you@example.com"
                   />
                 </label>
               </div>
 
               {/* Present Address Section */}
-              <div className="border border-slate-700 rounded-xl p-6 bg-slate-800/50">
-                <h2 className="text-xl font-semibold text-white mb-4">{t("register.presentAddress")}</h2>
+              <div className="border-2 border-[#E0E0E0] rounded p-6 bg-[#F5F5F5]">
+                <h2 className="text-xl font-bold text-[#002147] mb-4 govt-heading">{t("register.presentAddress")}</h2>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                   <label className="flex flex-col">
-                    <span className="text-sm text-slate-300 font-medium mb-2">
+                    <span className="text-sm text-[#002147] font-semibold mb-2">
                       House/Flat Number *
                     </span>
                     <input
@@ -241,13 +244,13 @@ export default function RegisterPage() {
                       onChange={handleChange}
                       required
                       aria-label="House/Flat Number"
-                      className="px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                      className="px-4 py-3 bg-white border-2 border-[#E0E0E0] rounded text-[#1a1a1a] placeholder-[#999] focus:outline-none focus:ring-2 focus:ring-[#002147] focus:border-[#002147] transition"
                       placeholder="e.g., 123"
                     />
                   </label>
 
                   <label className="flex flex-col">
-                    <span className="text-sm text-slate-300 font-medium mb-2">
+                    <span className="text-sm text-[#002147] font-semibold mb-2">
                       Street/Area *
                     </span>
                     <input
@@ -256,7 +259,7 @@ export default function RegisterPage() {
                       onChange={handleChange}
                       required
                       aria-label="Street/Area"
-                      className="px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                      className="px-4 py-3 bg-white border-2 border-[#E0E0E0] rounded text-[#1a1a1a] placeholder-[#999] focus:outline-none focus:ring-2 focus:ring-[#002147] focus:border-[#002147] transition"
                       placeholder="e.g., Main Street"
                     />
                   </label>
@@ -264,7 +267,7 @@ export default function RegisterPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                   <label className="flex flex-col">
-                    <span className="text-sm text-slate-300 font-medium mb-2">
+                    <span className="text-sm text-[#002147] font-semibold mb-2">
                       City *
                     </span>
                     <input
@@ -273,13 +276,13 @@ export default function RegisterPage() {
                       onChange={handleChange}
                       required
                       aria-label="City"
-                      className="px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                      className="px-4 py-3 bg-white border-2 border-[#E0E0E0] rounded text-[#1a1a1a] placeholder-[#999] focus:outline-none focus:ring-2 focus:ring-[#002147] focus:border-[#002147] transition"
                       placeholder="e.g., Mumbai"
                     />
                   </label>
 
                   <label className="flex flex-col">
-                    <span className="text-sm text-slate-300 font-medium mb-2">
+                    <span className="text-sm text-[#002147] font-semibold mb-2">
                       State *
                     </span>
                     <input
@@ -288,13 +291,13 @@ export default function RegisterPage() {
                       onChange={handleChange}
                       required
                       aria-label="State"
-                      className="px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                      className="px-4 py-3 bg-white border-2 border-[#E0E0E0] rounded text-[#1a1a1a] placeholder-[#999] focus:outline-none focus:ring-2 focus:ring-[#002147] focus:border-[#002147] transition"
                       placeholder="e.g., Maharashtra"
                     />
                   </label>
 
                   <label className="flex flex-col">
-                    <span className="text-sm text-slate-300 font-medium mb-2">
+                    <span className="text-sm text-[#002147] font-semibold mb-2">
                       PIN Code *
                     </span>
                     <input
@@ -303,7 +306,7 @@ export default function RegisterPage() {
                       onChange={handleChange}
                       required
                       aria-label="PIN Code"
-                      className="px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                      className="px-4 py-3 bg-white border-2 border-[#E0E0E0] rounded text-[#1a1a1a] placeholder-[#999] focus:outline-none focus:ring-2 focus:ring-[#002147] focus:border-[#002147] transition"
                       placeholder="e.g., 400001"
                     />
                   </label>
@@ -318,23 +321,23 @@ export default function RegisterPage() {
                     value={formData.presentAddress.country}
                     onChange={handleChange}
                     aria-label="Country"
-                    className="px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                    className="px-4 py-3 bg-white border-2 border-[#E0E0E0] rounded text-[#1a1a1a] placeholder-[#999] focus:outline-none focus:ring-2 focus:ring-[#002147] focus:border-[#002147] transition"
                     placeholder="e.g., India"
                   />
                 </label>
               </div>
 
               {/* Permanent Address Section */}
-              <div className="border border-slate-700 rounded-xl p-6 bg-slate-800/50">
+              <div className="border-2 border-[#E0E0E0] rounded p-6 bg-[#F5F5F5]">
                 <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-xl font-semibold text-white">Permanent Address</h2>
-                  <label className="flex items-center text-sm text-slate-300">
+                  <h2 className="text-xl font-bold text-[#002147] govt-heading">Permanent Address</h2>
+                  <label className="flex items-center text-sm text-[#002147] font-medium">
                     <input
                       name="isSameAsPermanent"
                       type="checkbox"
                       checked={formData.isSameAsPermanent}
                       onChange={handleChange}
-                      className="mr-2 h-4 w-4 text-blue-600 rounded focus:ring-blue-500"
+                      className="mr-2 h-4 w-4 text-[#002147] rounded focus:ring-[#002147] border-2 border-[#E0E0E0]"
                     />
                     Same as Present Address
                   </label>
@@ -344,7 +347,7 @@ export default function RegisterPage() {
                   <>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                       <label className="flex flex-col">
-                        <span className="text-sm text-slate-300 font-medium mb-2">
+                        <span className="text-sm text-[#002147] font-semibold mb-2">
                           House/Flat Number *
                         </span>
                         <input
@@ -353,13 +356,13 @@ export default function RegisterPage() {
                           onChange={handleChange}
                           required={!formData.isSameAsPermanent}
                           aria-label="House/Flat Number"
-                          className="px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                          className="px-4 py-3 bg-white border-2 border-[#E0E0E0] rounded text-[#1a1a1a] placeholder-[#999] focus:outline-none focus:ring-2 focus:ring-[#002147] focus:border-[#002147] transition"
                           placeholder="e.g., 123"
                         />
                       </label>
 
                       <label className="flex flex-col">
-                        <span className="text-sm text-slate-300 font-medium mb-2">
+                        <span className="text-sm text-[#002147] font-semibold mb-2">
                           Street/Area *
                         </span>
                         <input
@@ -368,7 +371,7 @@ export default function RegisterPage() {
                           onChange={handleChange}
                           required={!formData.isSameAsPermanent}
                           aria-label="Street/Area"
-                          className="px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                          className="px-4 py-3 bg-white border-2 border-[#E0E0E0] rounded text-[#1a1a1a] placeholder-[#999] focus:outline-none focus:ring-2 focus:ring-[#002147] focus:border-[#002147] transition"
                           placeholder="e.g., Main Street"
                         />
                       </label>
@@ -376,7 +379,7 @@ export default function RegisterPage() {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                       <label className="flex flex-col">
-                        <span className="text-sm text-slate-300 font-medium mb-2">
+                        <span className="text-sm text-[#002147] font-semibold mb-2">
                           City *
                         </span>
                         <input
@@ -385,13 +388,13 @@ export default function RegisterPage() {
                           onChange={handleChange}
                           required={!formData.isSameAsPermanent}
                           aria-label="City"
-                          className="px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                          className="px-4 py-3 bg-white border-2 border-[#E0E0E0] rounded text-[#1a1a1a] placeholder-[#999] focus:outline-none focus:ring-2 focus:ring-[#002147] focus:border-[#002147] transition"
                           placeholder="e.g., Mumbai"
                         />
                       </label>
 
                       <label className="flex flex-col">
-                        <span className="text-sm text-slate-300 font-medium mb-2">
+                        <span className="text-sm text-[#002147] font-semibold mb-2">
                           State *
                         </span>
                         <input
@@ -400,13 +403,13 @@ export default function RegisterPage() {
                           onChange={handleChange}
                           required={!formData.isSameAsPermanent}
                           aria-label="State"
-                          className="px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                          className="px-4 py-3 bg-white border-2 border-[#E0E0E0] rounded text-[#1a1a1a] placeholder-[#999] focus:outline-none focus:ring-2 focus:ring-[#002147] focus:border-[#002147] transition"
                           placeholder="e.g., Maharashtra"
                         />
                       </label>
 
                       <label className="flex flex-col">
-                        <span className="text-sm text-slate-300 font-medium mb-2">
+                        <span className="text-sm text-[#002147] font-semibold mb-2">
                           PIN Code *
                         </span>
                         <input
@@ -415,14 +418,14 @@ export default function RegisterPage() {
                           onChange={handleChange}
                           required={!formData.isSameAsPermanent}
                           aria-label="PIN Code"
-                          className="px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                          className="px-4 py-3 bg-white border-2 border-[#E0E0E0] rounded text-[#1a1a1a] placeholder-[#999] focus:outline-none focus:ring-2 focus:ring-[#002147] focus:border-[#002147] transition"
                           placeholder="e.g., 400001"
                         />
                       </label>
                     </div>
 
                     <label className="flex flex-col">
-                      <span className="text-sm text-slate-300 font-medium mb-2">
+                      <span className="text-sm text-[#002147] font-semibold mb-2">
                         Country
                       </span>
                       <input
@@ -430,7 +433,7 @@ export default function RegisterPage() {
                         value={formData.permanentAddress.country}
                         onChange={handleChange}
                         aria-label="Country"
-                        className="px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                        className="px-4 py-3 bg-white border-2 border-[#E0E0E0] rounded text-[#1a1a1a] placeholder-[#999] focus:outline-none focus:ring-2 focus:ring-[#002147] focus:border-[#002147] transition"
                         placeholder="e.g., India"
                       />
                     </label>
@@ -439,8 +442,8 @@ export default function RegisterPage() {
               </div>
 
               {/* Address Proof Section */}
-              <div className="border border-slate-700 rounded-xl p-6 bg-slate-800/50">
-                <h2 className="text-xl font-semibold text-white mb-4">Address Proof</h2>
+              <div className="border-2 border-[#E0E0E0] rounded p-6 bg-[#F5F5F5]">
+                <h2 className="text-xl font-bold text-[#002147] mb-4 govt-heading">Address Proof</h2>
                 
                 <label className="flex flex-col">
                   <span className="text-sm text-slate-300 font-medium mb-2">
@@ -452,7 +455,7 @@ export default function RegisterPage() {
                     onChange={handleChange}
                     required
                     aria-label="Address Proof Type"
-                    className="px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                    className="px-4 py-3 bg-white border-2 border-[#E0E0E0] rounded text-[#1a1a1a] placeholder-[#999] focus:outline-none focus:ring-2 focus:ring-[#002147] focus:border-[#002147] transition"
                   >
                     <option value="">Select address proof</option>
                     <option value="aadhaar">Aadhaar Card</option>
@@ -471,12 +474,12 @@ export default function RegisterPage() {
               </div>
 
               {/* District and Constituency Section */}
-              <div className="border border-slate-700 rounded-xl p-6 bg-slate-800/50">
-                <h2 className="text-xl font-semibold text-white mb-4">Electoral Information</h2>
+              <div className="border-2 border-[#E0E0E0] rounded p-6 bg-[#F5F5F5]">
+                <h2 className="text-xl font-bold text-[#002147] mb-4 govt-heading">Electoral Information</h2>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <label className="flex flex-col">
-                    <span className="text-sm text-slate-300 font-medium mb-2">
+                    <span className="text-sm text-[#002147] font-semibold mb-2">
                       District *
                     </span>
                     <input
@@ -485,16 +488,16 @@ export default function RegisterPage() {
                       onChange={handleChange}
                       required
                       aria-label="District"
-                      className="px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                      className="px-4 py-3 bg-white border-2 border-[#E0E0E0] rounded text-[#1a1a1a] placeholder-[#999] focus:outline-none focus:ring-2 focus:ring-[#002147] focus:border-[#002147] transition"
                       placeholder="e.g., Mumbai"
                     />
-                    <p className="text-xs text-slate-500 mt-1">
+                    <p className="text-xs text-[#4A4A4A] mt-1">
                       District where you are registered to vote
                     </p>
                   </label>
 
                   <label className="flex flex-col">
-                    <span className="text-sm text-slate-300 font-medium mb-2">
+                    <span className="text-sm text-[#002147] font-semibold mb-2">
                       Constituency *
                     </span>
                     <input
@@ -503,10 +506,10 @@ export default function RegisterPage() {
                       onChange={handleChange}
                       required
                       aria-label="Constituency"
-                      className="px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                      className="px-4 py-3 bg-white border-2 border-[#E0E0E0] rounded text-[#1a1a1a] placeholder-[#999] focus:outline-none focus:ring-2 focus:ring-[#002147] focus:border-[#002147] transition"
                       placeholder="e.g., Mumbai South"
                     />
-                    <p className="text-xs text-slate-500 mt-1">
+                    <p className="text-xs text-[#4A4A4A] mt-1">
                       Your electoral constituency
                     </p>
                   </label>
@@ -524,7 +527,7 @@ export default function RegisterPage() {
                     onChange={handleChange}
                     required
                     aria-label="Father's name"
-                    className="px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                    className="px-4 py-3 bg-white border-2 border-[#E0E0E0] rounded text-[#1a1a1a] placeholder-[#999] focus:outline-none focus:ring-2 focus:ring-[#002147] focus:border-[#002147] transition"
                     placeholder="Father's full name"
                   />
                 </label>
@@ -539,7 +542,7 @@ export default function RegisterPage() {
                     onChange={handleChange}
                     required
                     aria-label="Mother's name"
-                    className="px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                    className="px-4 py-3 bg-white border-2 border-[#E0E0E0] rounded text-[#1a1a1a] placeholder-[#999] focus:outline-none focus:ring-2 focus:ring-[#002147] focus:border-[#002147] transition"
                     placeholder="Mother's full name"
                   />
                 </label>
@@ -553,7 +556,7 @@ export default function RegisterPage() {
                     value={formData.occupation}
                     onChange={handleChange}
                     aria-label="Occupation"
-                    className="px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                    className="px-4 py-3 bg-white border-2 border-[#E0E0E0] rounded text-[#1a1a1a] placeholder-[#999] focus:outline-none focus:ring-2 focus:ring-[#002147] focus:border-[#002147] transition"
                   >
                     <option value="">Select occupation</option>
                     <option value="student">Student</option>
@@ -569,7 +572,7 @@ export default function RegisterPage() {
                 <button
                   type="button"
                   onClick={() => router.back()}
-                  className="px-5 py-3 bg-transparent border border-slate-700 text-slate-300 rounded-lg hover:bg-slate-800 transition"
+                  className="px-5 py-3 bg-white border-2 border-[#002147] text-[#002147] rounded hover:bg-[#F5F5F5] transition font-semibold"
                   disabled={loading}
                 >
                   Back
@@ -577,7 +580,7 @@ export default function RegisterPage() {
 
                 <button
                   type="submit"
-                  className="ml-auto px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-lg shadow hover:from-blue-700 hover:to-indigo-700 transition disabled:opacity-50"
+                  className="ml-auto px-6 py-3 bg-[#002147] text-white font-semibold rounded shadow-lg hover:bg-[#003A6B] transition disabled:opacity-50 border-2 border-[#FF9933]"
                   disabled={loading}
                 >
                   {loading ? t("register.saving") : t("register.continueToAadhaar")}
@@ -586,11 +589,12 @@ export default function RegisterPage() {
             </form>
           </section>
 
-          <p className="text-xs text-slate-500 mt-3 text-center">
+          <p className="text-xs text-[#4A4A4A] mt-3 text-center">
             {t("register.agreeTerms")}
           </p>
         </div>
       </main>
+      <Footer />
     </div>
   );
 }
